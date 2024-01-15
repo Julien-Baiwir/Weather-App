@@ -1,0 +1,33 @@
+$mobile: 375px;
+$tablet: 670px;
+$intermediate: 1024px;
+$desktop: 1400px;
+
+@mixin media-mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media (min-width: #{$mobile + 1px}) and (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin media-intermediate {
+  @media (min-width: #{$tablet + 1px}) and (max-width: #{$intermediate}) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media (min-width: #{$intermediate + 1px}) {
+    @content;
+  }
+}
+
+// @include media-breakpoint {
+//    } 
+  
+

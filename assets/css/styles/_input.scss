@@ -1,0 +1,42 @@
+$white: #ffffff;
+$secondary-white: #e5e5e5;
+$background-blue: #4D99E7;
+$darker-blue: #4475ef;
+$transp-white-1: rgba(255, 255, 255, 0.25);
+$transp-white-2: rgba(255, 255, 255, 0.1);
+$shadow: rgba(3, 46, 87, 0.1);
+
+#UserInput{
+    width:70%;
+    height:80%;
+    outline: none;
+    border: none;
+    font-size: 1.1em;
+    background-color: transparent;
+    border-bottom: 2px solid $transp-white-1;
+    color: $white;
+    font-weight: 400;
+    text-align: center;
+    
+}
+
+input::placeholder {
+    color: $white;
+    text-align: center;
+    font-weight: 200;
+  }
+
+#SearchButton{
+    width:10%;
+    height:70%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#SearchButton:hover {
+    transform: scale(1.1);
+  }
