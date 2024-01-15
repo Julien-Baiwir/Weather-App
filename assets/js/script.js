@@ -1,4 +1,4 @@
-async function getCityDataAndCoordonates(city) {
+async function getCityWeather(city) {
     const geocodingApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c29a355949954abe9d576d08246566b1&units=metric`;
 
     try {
@@ -28,13 +28,13 @@ async function getCityDataAndCoordonates(city) {
 }
 
 
-async function getCityNameandForecast(city) {
+async function getCityForecast(city) {
     try {
-        const { coordinates } = await getCityDataAndCoordonates(city);
+        const { coordinates } = await getCityWeather(city);
 
-        const weatherForecastApi = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=c29a355949954abe9d576d08246566b1&units=metric`;
+        const ForecastApi = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=c29a355949954abe9d576d08246566b1&units=metric`;
 
-        const response = await fetch(weatherForecastApi);
+        const response = await fetch(ForecastApi);
         const data = await response.json();
 
         const cityName = data.city.name;
@@ -51,29 +51,58 @@ async function getCityNameandForecast(city) {
     }
 }
 
+// ---------- DOM --------------
+function addDomElements(CityWeather, CityForecast) {
+    const { weatherDescription, mainTemperature, minTemperature, maxTemperature } = CityWeather;
+    const {cityName} = CityForecast;
+    const MainTemperature = Math.round(mainTemperature);
+    const MinTemperature = Math.round(minTemperature);
+    const MaxTemperature = Math.round(maxTemperature);
 
-async function handleSearchButtonClick() {
+    const resultContainer = document.querySelector('.app__result-container');
+
+    resultContainer.querySelector('.app__result-container__cityName').textContent = `${cityName}`;
+    resultContainer.querySelector('.app__result-container__weather-desc').textContent = `Weather: ${weatherDescription}`;
+    resultContainer.querySelector('.app__result-container__degre').textContent = `${MainTemperature}°`;
+
+ 
+    resultContainer.querySelector('.app__result-container__temp-wrap__min__title').textContent = 'Min';
+    resultContainer.querySelector('.app__result-container__temp-wrap__min__temp').textContent = `${MinTemperature}°`;
+
+    resultContainer.querySelector('.app__result-container__temp-wrap__max__title').textContent = 'Max';
+    resultContainer.querySelector('.app__result-container__temp-wrap__max__temp').textContent = `${MaxTemperature}°`;
+
    
-    const userInput = document.getElementById('UserInput').value;
+    const currentDate = new Date(); 
+    resultContainer.querySelector('.app__result-container__date').textContent = `${currentDate.toDateString()}`;
+  
+}
+
+
+
+// ----------MAIN CLICK --------------
+async function handleNewUserInput() {
+   
+    const userInput = document.getElementById ('UserInput').value;
 
     try {
         
-        const cityData = await getCityDataAndCoordonates(userInput);
-        const forecastData = await getCityNameandForecast(userInput);
+        const CityWeather = await getCityWeather(userInput);
+        const CityForecast = await getCityForecast(userInput);
+        
+        console.log(CityWeather);
+        console.log(CityForecast);
+        addDomElements(CityWeather, CityForecast);
 
-        // Do something with the data (e.g., update the DOM)
-        console.log(cityData);
-        console.log(forecastData);
+        return { CityWeather, CityForecast };
+
     } catch (error) {
         console.error('An error occurred:', error);
        
     }
 }
-
-document.getElementById('SearchButton').addEventListener('click', handleSearchButtonClick);
-
-
-
-
+document.getElementById('SearchButton').addEventListener('click', handleNewUserInput);
  
-  
+
+
+
