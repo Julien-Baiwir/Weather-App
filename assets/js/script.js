@@ -102,6 +102,18 @@ function addDomElements(CityWeather, CityForecast) {
   
 }
 
+// ----------addIcons --------------
+function addIcons (CityWeather) {
+    const iconsContainer = document.querySelector(".app__result-container__icon");
+    const { weatherDescription } = CityWeather;
+    iconsContainer.innerHTML = '';
+    const icon = document.createElement('img');
+    icon.alt = weatherDescription;
+
+    const iconPath = `../images/${weatherDescription.toLowerCase()}-icon.png`;
+    icon.src = iconPath;
+    iconsContainer.appendChild(icon);
+}
 
 
 // ----------MAIN CLICK --------------
@@ -119,7 +131,7 @@ async function handleNewUserInput() {
         console.log(CityWeather);
         // console.log(CityForecast);
         addDomElements(CityWeather, CityForecast);
-
+        addIcons (CityWeather);
         return { CityWeather, CityForecast };
 
     } catch (error) {
