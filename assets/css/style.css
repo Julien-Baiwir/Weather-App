@@ -422,7 +422,7 @@ body {
   }
 }
 
-#UserInput {
+.UserInput {
   width: 70%;
   height: 80%;
   outline: none;
