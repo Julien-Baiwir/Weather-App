@@ -33,7 +33,7 @@ async function getCityWeather(city) {
         const mainTemperature = data.main.temp;
         const minTemperature = data.main.temp_min;
         const maxTemperature = data.main.temp_max;
-
+        const weatherIcons = data.weather[0].icon;
         const latitude = data.coord.lat;
         const longitude = data.coord.lon;
 
@@ -42,6 +42,7 @@ async function getCityWeather(city) {
             mainTemperature,
             minTemperature,
             maxTemperature,
+            weatherIcons,
             coordinates: { latitude, longitude },
         };
 
@@ -105,12 +106,12 @@ function addDomElements(CityWeather, CityForecast) {
 // ----------addIcons --------------
 function addIcons (CityWeather) {
     const iconsContainer = document.querySelector(".app__result-container__icon");
-    const { weatherDescription } = CityWeather;
+    const { weatherIcons } = CityWeather;
     iconsContainer.innerHTML = '';
     const icon = document.createElement('img');
-    icon.alt = weatherDescription;
+    icon.alt = weatherIcons;
 
-    const iconPath = `../images/${weatherDescription.toLowerCase()}-icon.png`;
+    const iconPath = `../images/${weatherIcons.toLowerCase()}-icon.png`;
     icon.src = iconPath;
     iconsContainer.appendChild(icon);
 }
