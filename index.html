@@ -15,7 +15,10 @@
     <div class="app">
         <!-- ---------SEARCH TEMPERATURES-------------- -->
         <div class="app__search-container">
-            <input id="UserInput" type="text" placeholder="Enter a city name">
+            <input list="searchoptions" class="UserInput" type="text" placeholder="Enter a city name">
+            <datalist id="searchoptions"></datalist>
+
+
             <img id="SearchButton" src="assets/images/glass-white.svg" alt="Search Icon">
         </div>
         <!-- ---------RESULT TEMPERATURES-------------- -->
