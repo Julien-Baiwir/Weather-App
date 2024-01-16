@@ -115,9 +115,9 @@ async function handleNewUserInput() {
         const CityForecast = await getCityForecast(userInput);
 
         await GetCityPicture(userInput);
-        
+
         console.log(CityWeather);
-        console.log(CityForecast);
+        // console.log(CityForecast);
         addDomElements(CityWeather, CityForecast);
 
         return { CityWeather, CityForecast };
