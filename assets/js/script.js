@@ -1,3 +1,5 @@
+import { GetCityPicture } from './getCityPicture.js';
+
 async function Citysearch(cityOptions) {
     const datalistCity = document.getElementById('searchoptions');
     try {
@@ -111,6 +113,8 @@ async function handleNewUserInput() {
         
         const CityWeather = await getCityWeather(userInput);
         const CityForecast = await getCityForecast(userInput);
+
+        await GetCityPicture(userInput);
         
         console.log(CityWeather);
         console.log(CityForecast);
