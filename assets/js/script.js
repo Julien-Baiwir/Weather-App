@@ -110,8 +110,7 @@ function addIcons (CityWeather) {
     iconsContainer.innerHTML = '';
     const icon = document.createElement('img');
     icon.alt = weatherIcons;
-
-    const iconPath = `../images/${weatherIcons.toLowerCase()}-icon.png`;
+    const iconPath = `./${weatherIcons.toLowerCase()}-icon.png`;
     icon.src = iconPath;
     iconsContainer.appendChild(icon);
 }
