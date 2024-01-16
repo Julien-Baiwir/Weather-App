@@ -484,4 +484,5 @@ input::placeholder {
 .app__result-container__icon__icons {
   width: 70px;
   height: 70px;
+  display: none;
 }/*# sourceMappingURL=style.css.map */
