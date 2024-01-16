@@ -1,24 +1,25 @@
 import { format } from 'https://cdn.jsdelivr.net/npm/date-fns@2.24.0/esm/index.js';
 
 
-async function Citiesearch(citiyoptions) {
-    const datalistVille = document.getElementById('searchoptions');
-    try {
+// async function Citysearch(cityOptions) {
+//     const datalistCity = document.getElementById('searchoptions');
+//     try {
+//         const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${cityOptions}&format=json`);
+//         const data = await response.json();
+//         datalistCity.innerHTML = '';
 
-        const response = await fetch('https://nominatim.openstreetmap.org/search?city=${saisie}&format=json');
-        const data = await response.json();
-        data.innerHTML = '';
-
-        data.forEach(city => {
-            const option = document.createElement('option');
-            option.value = city.display_name;
-            datalistVille.appendChild(option);
-
-        });
-    } catch (error) {
-        console.error('Erreur lors du chargement des villes :', error);
-    }
-}
+//         data.forEach(city => {
+//             const option = document.createElement('option');
+//             option.value = city.display_name;
+//             datalistCity.appendChild(option);
+//         });
+//     } catch (error) {
+//         console.error('Error loading cities:', error);
+//     }
+// }
+// const userInput = document.getElementById('UserInput');
+// userInput.addEventListener('input', function() {
+//             Citysearch (this.value);});
 
 
 
