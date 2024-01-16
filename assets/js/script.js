@@ -28,7 +28,7 @@ async function getCityWeather(city) {
     try {
         const response = await fetch(geocodingApi);
         const data = await response.json();
-        
+        console.log(data);
         const weatherDescription = data.weather[0].description;
         const mainTemperature = data.main.temp;
         const minTemperature = data.main.temp_min;
@@ -104,15 +104,11 @@ function addDomElements(CityWeather, CityForecast) {
 }
 
 // ----------addIcons --------------
-function addIcons (CityWeather) {
-    const iconsContainer = document.querySelector(".app__result-container__icon");
+function addIcons(CityWeather) {
     const { weatherIcons } = CityWeather;
-    iconsContainer.innerHTML = '';
-    const icon = document.createElement('img');
-    icon.alt = weatherIcons;
-    const iconPath = `./${weatherIcons.toLowerCase()}-icon.png`;
-    icon.src = iconPath;
-    iconsContainer.appendChild(icon);
+    const icon = document.querySelector(".app__result-container__icon__icons");
+    icon.src = `assets/images/${weatherIcons}.png`;
+    icon.alt = "weatherIcons";
 }
 
 
@@ -130,8 +126,9 @@ async function handleNewUserInput() {
 
         console.log(CityWeather);
         // console.log(CityForecast);
-        addDomElements(CityWeather, CityForecast);
         addIcons (CityWeather);
+        addDomElements(CityWeather, CityForecast);
+     
         return { CityWeather, CityForecast };
 
     } catch (error) {
