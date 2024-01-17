@@ -1,119 +1,16 @@
+import { getCityWeather } from './getCitydatas.js';
+import { getCityForecast } from './getCitydatas.js';
 import { GetCityPicture } from './getCityPicture.js';
+import { addIcons } from './addIcons.js';
+import { Citysearch } from './autoComplete.js';
+import { addDomElements } from './addDomElements.js';
 
-async function Citysearch(cityOptions) {
-    const datalistCity = document.getElementById('searchoptions');
-    try {
-        const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${cityOptions}&format=json`);
-        const data = await response.json();
-        datalistCity.innerHTML = '';
-
-        data.forEach(city => {
-            const option = document.createElement('option');
-            option.value = city.display_name;
-            datalistCity.appendChild(option);
-        });
-    } catch (error) {
-        console.error('Error loading cities:', error);
-    }
-}
-
+// -----Add user input-------
 const userInput = document.querySelector('.UserInput');
 userInput.addEventListener('input', function() {
             Citysearch (this.value);});
 
-
-async function getCityWeather(city) {
-    const geocodingApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c29a355949954abe9d576d08246566b1&units=metric`;
-
-    try {
-        const response = await fetch(geocodingApi);
-        const data = await response.json();
-        console.log(data);
-        const weatherDescription = data.weather[0].description;
-        const mainTemperature = data.main.temp;
-        const minTemperature = data.main.temp_min;
-        const maxTemperature = data.main.temp_max;
-        const weatherIcons = data.weather[0].icon;
-        const latitude = data.coord.lat;
-        const longitude = data.coord.lon;
-
-        return {
-            weatherDescription,
-            mainTemperature,
-            minTemperature,
-            maxTemperature,
-            weatherIcons,
-            coordinates: { latitude, longitude },
-        };
-
-    } catch (error) {
-        console.error('Error requesting API', error);
-        throw error;
-    }
-}
-
-
-async function getCityForecast(city) {
-    try {
-        const { coordinates } = await getCityWeather(city);
-
-        const ForecastApi = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=c29a355949954abe9d576d08246566b1&units=metric`;
-
-        const response = await fetch(ForecastApi);
-        const data = await response.json();
-
-        const cityName = data.city.name;
-        const forecastList = data.list;
-
-        return{
-            cityName,
-            forecastList,
-        }
-
-    } catch (error) {
-        console.error('Error requesting API', error);
-        throw error;
-    }
-}
-
-// ---------- DOM --------------
-function addDomElements(CityWeather, CityForecast) {
-    const { weatherDescription, mainTemperature, minTemperature, maxTemperature } = CityWeather;
-    const {cityName} = CityForecast;
-    const MainTemperature = Math.round(mainTemperature);
-    const MinTemperature = Math.round(minTemperature);
-    const MaxTemperature = Math.round(maxTemperature);
-
-    const resultContainer = document.querySelector('.app__result-container');
-
-    resultContainer.querySelector('.app__result-container__cityName').textContent = `${cityName}`;
-    resultContainer.querySelector('.app__result-container__weather-desc').textContent = `Weather: ${weatherDescription}`;
-    resultContainer.querySelector('.app__result-container__degre').textContent = `${MainTemperature}°`;
-
- 
-    resultContainer.querySelector('.app__result-container__temp-wrap__min__title').textContent = 'Min';
-    resultContainer.querySelector('.app__result-container__temp-wrap__min__temp').textContent = `${MinTemperature}°`;
-
-    resultContainer.querySelector('.app__result-container__temp-wrap__max__title').textContent = 'Max';
-    resultContainer.querySelector('.app__result-container__temp-wrap__max__temp').textContent = `${MaxTemperature}°`;
-
-   
-    const currentDate = new Date(); 
-    resultContainer.querySelector('.app__result-container__date').textContent = `${currentDate.toDateString()}`;
-  
-}
-
-// ----------addIcons --------------
-function addIcons(CityWeather) {
-    const { weatherIcons } = CityWeather;
-    const icon = document.querySelector(".app__result-container__icon__icons");
-    icon.src = `assets/images/${weatherIcons}.png`;
-    icon.alt = "weatherIcons";
-    icon.style.display = 'block';
-}
-
-
-// ----------MAIN CLICK --------------
+// ----Add all functions after user input ---
 async function handleNewUserInput() {
    
     const userInput = document.querySelector ('.UserInput').value;
@@ -125,8 +22,9 @@ async function handleNewUserInput() {
 
         await GetCityPicture(userInput);
 
-        console.log(CityWeather);
+        // console.log(CityWeather);
         // console.log(CityForecast);
+
         addIcons (CityWeather);
         addDomElements(CityWeather, CityForecast);
      
