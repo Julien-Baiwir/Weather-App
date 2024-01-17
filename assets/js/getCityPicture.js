@@ -13,7 +13,7 @@ export async function GetCityPicture(city) {
             const img = document.createElement('img');
             img.src = photo.urls.regular;
             img.alt = photo.alt_description;
-            img.classList.add('miniature-photo');
+            img.classList.add('app__result-container__photos-container__miniatures');
             photosContainer.appendChild(img);
         }); 
       

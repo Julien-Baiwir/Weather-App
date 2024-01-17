@@ -38,7 +38,7 @@ export async function getCityForecast(city) {
 
         const response = await fetch(ForecastApi);
         const data = await response.json();
-
+        console.log(data);
         const cityName = data.city.name;
         const forecastList = data.list;
 
@@ -52,3 +52,4 @@ export async function getCityForecast(city) {
         throw error;
     }
 }
+

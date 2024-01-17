@@ -3,14 +3,14 @@ import { getCityForecast } from './getCitydatas.js';
 import { GetCityPicture } from './getCityPicture.js';
 import { addIcons } from './addIcons.js';
 import { Citysearch } from './autoComplete.js';
-import { addDomElements } from './addDomElements.js';
+import { addResultContainer, addTodayTemperatures} from './addDomElements.js';
 
-// -----Add user input-------
+// -----Add user input value -------
 const userInput = document.querySelector('.UserInput');
 userInput.addEventListener('input', function() {
             Citysearch (this.value);});
 
-// ----Add all functions after user input ---
+// ----Add all functions after user input value---
 async function handleNewUserInput() {
    
     const userInput = document.querySelector ('.UserInput').value;
@@ -21,12 +21,12 @@ async function handleNewUserInput() {
         const CityForecast = await getCityForecast(userInput);
 
         await GetCityPicture(userInput);
-
-        // console.log(CityWeather);
-        // console.log(CityForecast);
-
+        
+        addResultContainer(CityWeather, CityForecast);
         addIcons (CityWeather);
-        addDomElements(CityWeather, CityForecast);
+        addTodayTemperatures(CityForecast);
+       
+       
      
         return { CityWeather, CityForecast };
 

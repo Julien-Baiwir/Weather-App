@@ -1,5 +1,5 @@
 // ---------- city-result-container --------------
-export function addDomElements(CityWeather, CityForecast) {
+export function addResultContainer(CityWeather, CityForecast) {
     const { weatherDescription, mainTemperature, minTemperature, maxTemperature } = CityWeather;
     const {cityName} = CityForecast;
     const MainTemperature = Math.round(mainTemperature);
@@ -9,7 +9,7 @@ export function addDomElements(CityWeather, CityForecast) {
     const resultContainer = document.querySelector('.app__result-container');
 
     resultContainer.querySelector('.app__result-container__cityName').textContent = `${cityName}`;
-    resultContainer.querySelector('.app__result-container__weather-desc').textContent = `Weather: ${weatherDescription}`;
+    resultContainer.querySelector('.app__result-container__weather-desc').textContent = `Sky: ${weatherDescription}`;
     resultContainer.querySelector('.app__result-container__degre').textContent = `${MainTemperature}°`;
 
  
@@ -24,3 +24,31 @@ export function addDomElements(CityWeather, CityForecast) {
     resultContainer.querySelector('.app__result-container__date').textContent = `${currentDate.toDateString()}`;
   
 }
+
+export function addTodayTemperatures(CityForecast) {
+    const {forecastList} = CityForecast;
+    const todayContainer = document.querySelector('.app__today-temperatures');
+
+    for (let i = 0; i < 6; i++) {
+     
+        const forecastWeatherIcon = forecastList[i].weather[0].icon;
+        const forecastTimestamp = forecastList[i].dt;
+        const forecastTemperature = forecastList[i].main.temp;
+       
+
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'app__today-temperatures__wrapper';
+        cardDiv.innerHTML = `
+            <h2 class="app__today-temperatures__wrapper__heure">${new Date(forecastTimestamp * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</h2>
+            <img class="app__today-temperatures__wrapper__icon" src="assets/images/${forecastWeatherIcon}.png">
+            <h2 class="app__today-temperatures__wrapper__temp">${forecastTemperature}°C</h2>
+        `;
+
+        todayContainer.appendChild(cardDiv);
+    }
+}
+
+
+ 
+   
+   
