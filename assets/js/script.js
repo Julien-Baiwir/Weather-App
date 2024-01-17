@@ -3,7 +3,7 @@ import { getCityForecast } from './getCitydatas.js';
 import { GetCityPicture } from './getCityPicture.js';
 import { addIcons } from './addIcons.js';
 import { Citysearch } from './autoComplete.js';
-import { addResultContainer, addTodayTemperatures} from './addDomElements.js';
+import { addResultContainer, addTodayTemperatures, addWeekTemperatures} from './addDomElements.js';
 
 // -----Add user input value -------
 const userInput = document.querySelector('.UserInput');

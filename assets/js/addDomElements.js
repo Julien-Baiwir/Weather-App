@@ -27,20 +27,21 @@ export function addResultContainer(CityWeather, CityForecast) {
 export function addTodayTemperatures(CityForecast) {
     const { forecastList } = CityForecast;
     const todayContainer = document.querySelector('.app__today-temperatures');
-
+   
+   
     for (let i = 0; i < 6; i++) {
 
         const forecastWeatherIcon = forecastList[i].weather[0].icon;
         const forecastTimestamp = forecastList[i].dt;
         const forecastTemperature = forecastList[i].main.temp;
-
+        const RoundTemperature = Math.round(forecastTemperature);
 
         const cardDiv = document.createElement('div');
         cardDiv.className = 'app__today-temperatures__wrapper';
         cardDiv.innerHTML = `
             <h2 class="app__today-temperatures__wrapper__heure">${new Date(forecastTimestamp * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</h2>
             <img class="app__today-temperatures__wrapper__icon" src="assets/images/${forecastWeatherIcon}.png">
-            <h2 class="app__today-temperatures__wrapper__temp">${forecastTemperature}°C</h2>
+            <h2 class="app__today-temperatures__wrapper__temp">${RoundTemperature}°C</h2>
         `;
 
         todayContainer.appendChild(cardDiv);
@@ -59,13 +60,14 @@ export function addWeekTemperatures(CityForecast) {
         nextFiveDays.forEach(forecast => {
         const forecastWeatherIcon = forecast.weather[0].icon;
         const forecastTemperature = forecast.main.temp;
+        const RoundTemperature = Math.round(forecastTemperature);
 
         const cardDiv = document.createElement('div');
         cardDiv.className = 'app__week-temperatures__wrapper';
         cardDiv.innerHTML = `
-            <h2 class="app__today-temperatures__wrapper__day">${new Date(forecast.dt * 1000).toLocaleDateString('en-US', { weekday: 'long' })}</h2>
-            <img class="app__today-temperatures__wrapper__icon" src="assets/images/${forecastWeatherIcon}.png">
-            <h2 class="app__today-temperatures__wrapper__temp">${forecastTemperature}°C</h2>
+            <h2 class="app__week-temperatures__wrapper__day">${new Date(forecast.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' })}</h2>
+            <img class="app__week-temperatures__wrapper__icon" src="assets/images/${forecastWeatherIcon}.png">
+            <h2 class="app__week-temperatures__wrapper__temp">${RoundTemperature}°C</h2>
         `;
 
         weekContainer.appendChild(cardDiv);
