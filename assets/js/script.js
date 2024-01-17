@@ -21,11 +21,11 @@ async function handleNewUserInput() {
         const CityForecast = await getCityForecast(userInput);
 
         await GetCityPicture(userInput);
-        
+
         addResultContainer(CityWeather, CityForecast);
         addIcons (CityWeather);
         addTodayTemperatures(CityForecast);
-       
+        addWeekTemperatures(CityForecast);
        
      
         return { CityWeather, CityForecast };
