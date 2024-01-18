@@ -1,6 +1,6 @@
 export async function GetCityPicture(city) {
     const accessKey = '_dxiGKT7YLMIf7ZE-a3zLHnF2UYyzeCUvPTrVPXr_us';
-     const photosContainer = document.querySelector('.app__result-container__photos-container');
+     const photosContainer = document.querySelector('.app__result__container__photos-container');
     
      try {
         photosContainer.innerHTML = '';
@@ -13,7 +13,7 @@ export async function GetCityPicture(city) {
             const img = document.createElement('img');
             img.src = photo.urls.regular;
             img.alt = photo.alt_description;
-            img.classList.add('app__result-container__photos-container__miniatures');
+            img.classList.add('app__result__container__photos-container__miniatures');
             photosContainer.appendChild(img);
         }); 
       

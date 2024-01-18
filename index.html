@@ -15,52 +15,49 @@
 
 <body>
     <div class="app">
-        <!-- ---------SEARCH CITY-------------- -->
+
+        <!-- SEARCH CITY -->
         <div class="app__search-container">
-            
             <input list="searchoptions" class="UserInput" type="text" placeholder="Enter a city name">
             <datalist id="searchoptions"></datalist>
-
-
             <img id="SearchButton" src="assets/images/glass-white.svg" alt="Search Icon">
             <img id="plusButton" src="assets/images/plus-circle.svg" alt="plus Icon" title="Compare another city">
         </div>
-       
 
-        <!-- ---------RESULT SEARCH CITY---------------->
-        <div class="app__result"></div>
-        <div class="app__result-container">
+        <!-- RESULT SEARCH CITY-->
+        <div class="app__result">
 
-            <h2 class="app__result-container__cityName"></h2>
-            <div class="app__result-container__icon">
+            <div class="app__result__container">
 
-                <img class="app__result-container__icon__icons">
-            </div>
-
-            <h4 class="app__result-container__weather-desc"></h4>
-            <h1 class="app__result-container__degre"></h1>
-
-            <div class="app__result-container__temp">
-
-                <div class="app__result-container__temp__min">
-                    <h4 class="app__result-container__temp-wrap__min__title"></h4>
-                    <h4 class="app__result-container__temp-wrap__min__temp"></h4>
+                <h2 class="app__result__container__cityName"></h2>
+                <div class="app__result__container__icon">
+                    <img class="app__result__container__icon__icons">
                 </div>
-
-                <div class="app__result-container__temp__max">
-                    <h4 class="app__result-container__temp-wrap__max__title"></h4>
-                    <h4 class="app__result-container__temp-wrap__max__temp"></h4>
+                <h4 class="app__result__container__weather-desc"></h4>
+                <h1 class="app__result__container__degre"></h1>
+                <div class="app__result__container__temp">
+                    <div class="app__result__container__temp__min">
+                        <h4 class="app__result__container__temp-wrap__min__title"></h4>
+                        <h4 class="app__result__container__temp-wrap__min__temp"></h4>
+                    </div>
+                    <div class="app__result__container__temp__max">
+                        <h4 class="app__result__container__temp-wrap__max__title"></h4>
+                        <h4 class="app__result__container__temp-wrap__max__temp"></h4>
+                    </div>
                 </div>
             </div>
-            <h2 class="app__result-container__date"></h2>
-            <div class="app__result-container__photos-container"></div>
+
+            <!-- <div class="app__result__compare"> London 5 °</div> -->
+
         </div>
 
-        <!-- ---------TODAY TEMPERATURES---------------->
+        <!-- TODAY TEMPERATURES -->
         <div class="app__today-temperatures"></div>
 
-            <!-- ---------WEEK TEMPERATURES---------------->
+        <!-- WEEK TEMPERATURES -->
         <div class="app__week-temperatures"></div>
+
+    </div>
 </body>
 
 </html>

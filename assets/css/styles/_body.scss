@@ -25,7 +25,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
- 
+
   @include media-intermediate {
     max-width: 83%;
   }
@@ -39,7 +39,7 @@ body {
     max-width: 100%;
   }
 
-// ---------SEARCH CITY--------------
+  // ---------SEARCH CITY--------------
   &__search-container {
     width: 30%;
     height: 5%;
@@ -55,7 +55,7 @@ body {
     border: 1px solid $transp-white-2;
     border-radius: 0.6em;
     box-shadow: 0 0.25em 0.25em ($shadow);
-   
+
 
     @include media-intermediate {
       width: 40%;
@@ -69,128 +69,151 @@ body {
       width: 95%;
     }
   }
-// ---------RESULT CITY--------------
-  &__result-container {
-    width: 40%;
-    height: 50%;
+
+  // ---------RESULT CITY--------------
+  &__result {
+    width: 100%;
+    height: 45%;
     margin-top: 1em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    // overflow: hidden;
-   
- 
-    background: $transp-white-2;
-    backdrop-filter: blur(10px);
-    padding: 0.5em 0.2em;
-    border: 1px solid $transp-white-2;
-    border-radius: 0.6em;
-    box-shadow: 0 0.25em 0.5em ($shadow);
+    display: grid;
+    grid-template-columns: repeat(19, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1em;
 
-    @include media-intermediate {
-      width: 55%;
-    }
-
-    @include media-tablet {
-      width: 80%;
-    }
-
-    @include media-mobile {
-      width: 95%;
-    }
-
-    &__cityName {
-      color: $white;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 2em;
-      font-weight: 600;
-      margin-top: 0.5em;
-   
-    }
-    
-    &__icon{
-      margin: 0.6em 0;
-
-       &__icons{
-        width: 4.5em; 
-        height: 4.5em;
-        display: none; 
-       }
-    }
-
-    &__weather-desc {
-      color: $white;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-size: 0.9em;
-      font-weight: 500;
-      line-height: 2em;
-    }
-
-    &__degre {
-      font-size: 5em;
-      margin-top: 0.5em;
-      line-height: 0;
-      font-weight: 400;
-      padding-left: 0px;
-      color: $white;
-    }
-
-    &__temp {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-top: 3em;
-
-      &__min {
-        color: $white;
-        padding-right: 0.5em;
-        border-right: 1px solid #ffffff;
-      }
-
-      &__max {
-        color: $white;
-        padding-left: 0.5em;
-      }
-    }
-
-    &__date{
-      color: $white;
-      margin-top: 1em;
-      display: none;
-    }
-
-    &__photos-container {
-      height: 25%;
+    &__container {
+      grid-row: span 5;
+      grid-column: 6 / span 9;
       margin-top: 1em;
       display: flex;
-      flex-direction: row;
-      box-sizing: border-box;
-      position:relative;
-  
-  
-      &__miniatures {
-          flex: 1; 
+      flex-direction: column;
+      align-items: center;
+      // overflow: hidden;
+
+
+      background: $transp-white-2;
+      backdrop-filter: blur(10px);
+      padding: 0.5em 0.2em;
+      border: 1px solid $transp-white-2;
+      border-radius: 0.6em;
+      box-shadow: 0 0.25em 0.5em ($shadow);
+
+      @include media-intermediate {
+        width: 55%;
+      }
+
+      @include media-tablet {
+        width: 80%;
+      }
+
+      @include media-mobile {
+        width: 95%;
+      }
+
+      &__cityName {
+        color: $white;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 2em;
+        font-weight: 600;
+        margin-top: 0.5em;
+
+      }
+
+      &__icon {
+        margin: 0.6em 0;
+
+        &__icons {
+          width: 4.5em;
+          height: 4.5em;
+          display: none;
+        }
+      }
+
+      &__weather-desc {
+        color: $white;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.9em;
+        font-weight: 500;
+        line-height: 2em;
+      }
+
+      &__degre {
+        font-size: 5em;
+        margin-top: 0.5em;
+        line-height: 0;
+        font-weight: 400;
+        padding-left: 0px;
+        color: $white;
+      }
+
+      &__temp {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 3em;
+
+        &__min {
+          color: $white;
+          padding-right: 0.5em;
+          border-right: 1px solid #ffffff;
+        }
+
+        &__max {
+          color: $white;
+          padding-left: 0.5em;
+        }
+      }
+
+      &__date {
+        color: $white;
+        margin-top: 1em;
+        display: none;
+      }
+
+      &__photos-container {
+        height: 25%;
+        margin-top: 1em;
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+        position: relative;
+
+
+        &__miniatures {
+          flex: 1;
           box-sizing: border-box;
           margin-right: 1%;
-          border-radius: 0.5em; 
-          height: 4em; 
+          border-radius: 0.5em;
+          height: 4em;
           width: 4em;
           opacity: 0.5;
           transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, opacity 0.4s ease-in-out;
-      }
-      &__miniatures:hover {
-        transform: scale(2.3) rotate(calc(var(--rotation, 0) * 1deg)); 
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        opacity: 1; 
-        cursor: zoom-in;
-        z-index: 2;
-    }
-  }
- }
+        }
 
-// ---------TODAY WEATHER--------------
+        &__miniatures:hover {
+          transform: scale(2.3) rotate(calc(var(--rotation, 0) * 1deg));
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          opacity: 1;
+          cursor: zoom-in;
+          z-index: 2;
+        }
+      }
+    }
+
+    //  &__compare{
+    //   flex: 1; 
+    //   margin-top: 1em;
+    //   background: $transp-white-2;
+    //   backdrop-filter: blur(10px);
+    //   padding: 0.5em 0.2em;
+    //   border: 1px solid $transp-white-2;
+    //   border-radius: 0.6em;
+    //   box-shadow: 0 0.25em 0.5em ($shadow);
+    //  }
+
+  }
+
   &__today-temperatures {
     width: 80%;
     height: 11%;
@@ -328,91 +351,7 @@ body {
 
   }
 
+
 }
 
-// // ---------PAST SEARCHES--------------  
-//   &__past-searches {
-//     width: 80%;
-//     height: 8%;
-//     margin-top: 1em;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-around;
-
-//     @include media-intermediate {
-//       width: 85%;
-//     }
-
-//     @include media-tablet {
-//       width: 95%;
-//     }
-
-//     @include media-mobile {
-//       width: 95%;
-//     }
-
-//     &__1,
-//     &__2,
-//     &__3,
-//     &__4{
-//       background: $transp-white-2;
-//       backdrop-filter: blur(10px);
-//       padding: 0.5em 0.2em;
-//       border: 1px solid $transp-white-2;
-//       border-radius: 0.6em;
-//       box-shadow: 0 1.8em 3.7em ($shadow);
-//       display: flex;
-//       flex-direction: row;
-//       justify-content: space-around;
-//       align-items: center;
-//       width:15%;
-//       cursor:pointer;
-//       overflow: hidden;
-
-//       @include media-intermediate {
-//         width: 85%;
-//         width:18%;
-//       }
-  
-//       @include media-tablet {
-//         width: 95%;
-//         width:28%;
-        
-//       }
-  
-//       @include media-mobile {
-//         width: 95%;
-//         width:30%;
-//       }
-
-//     &__city {
-//       color: $white;
-     
-//     }
-
-//     &__wrapper{
-//       display: flex;
-//       flex-direction: column;
-
-//       &__icon{
-//         width: 30px;
-//         height: 30px;
-//         padding-bottom: 7px;;
-//       }
-//       &__temp{
-//         color: $white;
-//         font-size: 1.2em;
-//       }
-//     }
-//   }
-
-//   &__4{
-//    @include media-tablet {
-//         display: none;
-        
-//       }
-//     @include media-mobile {
-//       display: none;
-//       }
-//  }
-// }
+// final tag

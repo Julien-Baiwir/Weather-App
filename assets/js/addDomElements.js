@@ -1,4 +1,4 @@
-// ---------- city-result-container --------------
+// ---------- city-result__container --------------
 export function addResultContainer(CityWeather, CityForecast) {
     const { weatherDescription, mainTemperature, minTemperature, maxTemperature } = CityWeather;
     const { cityName } = CityForecast;
@@ -6,21 +6,21 @@ export function addResultContainer(CityWeather, CityForecast) {
     const MinTemperature = Math.round(minTemperature);
     const MaxTemperature = Math.round(maxTemperature);
 
-    const resultContainer = document.querySelector('.app__result-container');
+    const resultContainer = document.querySelector('.app__result__container');
 
-    resultContainer.querySelector('.app__result-container__cityName').textContent = `${cityName}`;
-    resultContainer.querySelector('.app__result-container__weather-desc').textContent = `Sky: ${weatherDescription}`;
-    resultContainer.querySelector('.app__result-container__degre').textContent = `${MainTemperature}°`;
+    resultContainer.querySelector('.app__result__container__cityName').textContent = `${cityName}`;
+    resultContainer.querySelector('.app__result__container__weather-desc').textContent = `Sky: ${weatherDescription}`;
+    resultContainer.querySelector('.app__result__container__degre').textContent = `${MainTemperature}°`;
 
 
-    resultContainer.querySelector('.app__result-container__temp-wrap__min__title').textContent = 'Min';
-    resultContainer.querySelector('.app__result-container__temp-wrap__min__temp').textContent = `${MinTemperature}°`;
+    resultContainer.querySelector('.app__result__container__temp-wrap__min__title').textContent = 'Min';
+    resultContainer.querySelector('.app__result__container__temp-wrap__min__temp').textContent = `${MinTemperature}°`;
 
-    resultContainer.querySelector('.app__result-container__temp-wrap__max__title').textContent = 'Max';
-    resultContainer.querySelector('.app__result-container__temp-wrap__max__temp').textContent = `${MaxTemperature}°`;
+    resultContainer.querySelector('.app__result__container__temp-wrap__max__title').textContent = 'Max';
+    resultContainer.querySelector('.app__result__container__temp-wrap__max__temp').textContent = `${MaxTemperature}°`;
 
     const currentDate = new Date();
-    resultContainer.querySelector('.app__result-container__date').textContent = `${currentDate.toDateString()}`;
+    resultContainer.querySelector('.app__result__container__date').textContent = `${currentDate.toDateString()}`;
 
 }
 
