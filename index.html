@@ -15,16 +15,20 @@
 
 <body>
     <div class="app">
-        <div id="photos-container"></div>
         <!-- ---------SEARCH CITY-------------- -->
         <div class="app__search-container">
+            
             <input list="searchoptions" class="UserInput" type="text" placeholder="Enter a city name">
             <datalist id="searchoptions"></datalist>
 
 
             <img id="SearchButton" src="assets/images/glass-white.svg" alt="Search Icon">
+            <img id="plusButton" src="assets/images/plus-circle.svg" alt="plus Icon" title="Compare another city">
         </div>
+       
+
         <!-- ---------RESULT SEARCH CITY---------------->
+        <div class="app__result"></div>
         <div class="app__result-container">
 
             <h2 class="app__result-container__cityName"></h2>

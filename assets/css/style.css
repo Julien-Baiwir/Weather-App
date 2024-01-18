@@ -52,10 +52,6 @@ table {
   border-spacing: 0;
 }
 
-* {
-  font-family: "Poppins", sans-serif;
-}
-
 body {
   background-image: url("../images/backclouds.jpg");
   background-size: cover;
@@ -337,6 +333,31 @@ body {
   font-size: 1.2em;
 }
 
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+#SearchButton,
+#plusButton {
+  width: 10%;
+  height: 70%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+#SearchButton:hover,
+#plusButton:hover {
+  transform: scale(1.1);
+}
+
+#plusButton {
+  width: 8%;
+}
+
 .UserInput {
   width: 70%;
   height: 80%;
@@ -360,19 +381,4 @@ input::placeholder {
   color: #ffffff;
   text-align: center;
   font-weight: 200;
-}
-
-#SearchButton {
-  width: 10%;
-  height: 70%;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: transform 0.1s;
-}
-
-#SearchButton:hover {
-  transform: scale(1.1);
 }/*# sourceMappingURL=style.css.map */
