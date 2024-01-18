@@ -7,6 +7,7 @@ import { addResultContainer, addTodayTemperatures, addWeekTemperatures, addOther
 
 // -----Add user input value -------
 const userInput = document.querySelector('.UserInput');
+
 userInput.addEventListener('input', function() {
     const nameofthecity = this.value.trim().split(' ')[0];
             Citysearch (nameofthecity);});
@@ -15,6 +16,7 @@ userInput.addEventListener('input', function() {
 async function handleNewUserInput() {
    
     const userInput = document.querySelector ('.UserInput').value;
+    
 
     try {
         
