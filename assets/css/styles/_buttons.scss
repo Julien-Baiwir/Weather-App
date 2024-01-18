@@ -1,5 +1,5 @@
 #SearchButton,
-#plusButton {
+#CompareButton {
     width: 10%;
     height: 70%;
     background-color: transparent;
@@ -11,11 +11,11 @@
 }
 
 #SearchButton:hover,
-#plusButton:hover {
+#CompareButton:hover {
     transform: scale(1.1);
 }
 
-#plusButton {
-    width: 8%;
+#CompareButton {
+    width: 7%;
 }
 

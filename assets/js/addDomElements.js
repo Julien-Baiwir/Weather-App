@@ -73,3 +73,24 @@ export function addWeekTemperatures(CityForecast) {
         weekContainer.appendChild(cardDiv);
     });
 }
+
+
+export function addOtherCity(CityForecast, CityWeather) {
+    const { cityName } = CityForecast;
+    const {mainTemperature} = CityWeather;
+    const { weatherIcons } = CityWeather;
+
+    const MainTemperature = Math.round(mainTemperature);
+    const compareContainer = document.querySelector('.app__result__compare');
+    
+    const newcityDiv = document.createElement('div');
+         newcityDiv.className = 'app__result__compare__city';
+         newcityDiv.innerHTML = `
+            <h2 class="app__result__compare__city__name">${cityName}</h2>
+            <img class="app__result__compare__city__icon" src="assets/images/${weatherIcons}.png">
+            <h2 class="app__result__compare__city__temp">${MainTemperature}°C</h2>
+        `;
+       
+        compareContainer.appendChild(newcityDiv);
+   
+}

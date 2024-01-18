@@ -73,8 +73,7 @@ body {
   // ---------RESULT CITY--------------
   &__result {
     width: 100%;
-    height: 45%;
-    margin-top: 1em;
+    height: 60%;
     display: grid;
     grid-template-columns: repeat(19, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -201,16 +200,38 @@ body {
       }
     }
 
-    //  &__compare{
-    //   flex: 1; 
-    //   margin-top: 1em;
-    //   background: $transp-white-2;
-    //   backdrop-filter: blur(10px);
-    //   padding: 0.5em 0.2em;
-    //   border: 1px solid $transp-white-2;
-    //   border-radius: 0.6em;
-    //   box-shadow: 0 0.25em 0.5em ($shadow);
-    //  }
+     &__compare{
+      grid-row: span 5;
+      grid-column: 15/ span 4; 
+      margin-top: 1em;
+      
+      &__city{
+        grid-row: span 1;
+        grid-column: span 4;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0.5em;
+        background: $transp-white-2;
+        backdrop-filter: blur(10px);
+        padding: 0.5em 0.2em;
+        border: 1px solid $transp-white-2;
+        border-radius: 0.6em;
+        box-shadow: 0 0.25em 0.5em ($shadow);
+
+            &__name{
+              color: $white;
+            }
+            &__icon{
+              width: 30px;
+              height: 30px;
+            }
+            &__temp{
+              color: $white;
+              font-size: 1.2em;
+            }
+      }
+
+     }
 
   }
 
