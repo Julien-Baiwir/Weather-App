@@ -1,3 +1,10 @@
+function extractCityName(displayName) {
+    
+    const parts = displayName.split(',').map(part => part.trim());
+    return parts[0]; 
+}
+
+
 export async function Citysearch(cityOptions) {
     const datalistCity = document.getElementById('searchoptions');
     try {
@@ -7,10 +14,11 @@ export async function Citysearch(cityOptions) {
 
         data.forEach(city => {
             const option = document.createElement('option');
-            option.value = city.display_name;
+            option.value = (city.display_name);
             datalistCity.appendChild(option);
         });
     } catch (error) {
         console.error('Error loading cities:', error);
     }
 }
+

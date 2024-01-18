@@ -8,7 +8,8 @@ import { addResultContainer, addTodayTemperatures, addWeekTemperatures, addOther
 // -----Add user input value -------
 const userInput = document.querySelector('.UserInput');
 userInput.addEventListener('input', function() {
-            Citysearch (this.value);});
+    const nameofthecity = this.value.trim().split(' ')[0];
+            Citysearch (nameofthecity);});
 
 // ----Add all functions after user input value---
 async function handleNewUserInput() {

@@ -27,7 +27,11 @@ export function addResultContainer(CityWeather, CityForecast) {
 export function addTodayTemperatures(CityForecast) {
     const { forecastList } = CityForecast;
     const todayContainer = document.querySelector('.app__today-temperatures');
-   
+    todayContainer.innerHTML = '';
+    const subtitleElement = document.createElement('h2');
+    subtitleElement.className = 'app__today-temperatures__subtitle';
+    subtitleElement.textContent = 'Next hours'; 
+    todayContainer.appendChild(subtitleElement);
    
     for (let i = 0; i < 6; i++) {
 
@@ -51,6 +55,13 @@ export function addTodayTemperatures(CityForecast) {
 export function addWeekTemperatures(CityForecast) {
     const { forecastList } = CityForecast;
     const weekContainer = document.querySelector('.app__week-temperatures');
+    weekContainer.innerHTML = '';
+    const subtitleElement = document.createElement('h2');
+    subtitleElement.className = 'app__week-temperatures__subtitle';
+    subtitleElement.textContent = 'This week'; 
+    weekContainer.appendChild(subtitleElement);
+
+
 
     const nextFiveDays = forecastList.filter(forecast => {
         const forecastTimestamp = forecast.dt;

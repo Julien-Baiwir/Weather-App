@@ -269,7 +269,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  padding-right: 70px;
+  padding-right: 5.3em;
 }
 @media (min-width: 671px) and (max-width: 1024px) {
   .app__today-temperatures {
@@ -286,6 +286,20 @@ body {
   .app__today-temperatures {
     width: 95%;
     padding-right: 0px;
+  }
+}
+.app__today-temperatures__subtitle {
+  color: #ffffff;
+}
+@media (min-width: 376px) and (max-width: 670px) {
+  .app__today-temperatures__subtitle {
+    display: none;
+  }
+}
+@media (max-width: 375px) {
+  .app__today-temperatures__subtitle {
+    width: 95%;
+    display: none;
   }
 }
 .app__today-temperatures__wrapper {
@@ -340,6 +354,20 @@ body {
   .app__week-temperatures {
     width: 95%;
     padding-right: 0px;
+  }
+}
+.app__week-temperatures__subtitle {
+  color: #ffffff;
+}
+@media (min-width: 376px) and (max-width: 670px) {
+  .app__week-temperatures__subtitle {
+    display: none;
+  }
+}
+@media (max-width: 375px) {
+  .app__week-temperatures__subtitle {
+    width: 95%;
+    display: none;
   }
 }
 .app__week-temperatures__wrapper {
