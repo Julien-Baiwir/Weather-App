@@ -262,6 +262,15 @@ body {
   color: #ffffff;
   font-size: 1.2em;
 }
+.app__result__compare__city__remove-button {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 0.5em 0.2em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.6em;
+  box-shadow: 0 0.25em 0.5em rgba(3, 46, 87, 0.1);
+}
 .app__today-temperatures {
   width: 80%;
   height: 11%;

@@ -60,5 +60,3 @@ async function handleCompareCityInput() {
     }
 }
 document.getElementById('CompareButton').addEventListener('click', handleCompareCityInput);
-
-
