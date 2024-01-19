@@ -4,44 +4,45 @@ import { GetCityPicture } from './getCityPicture.js';
 import { addIcons } from './addIcons.js';
 import { Citysearch } from './citySearch.js';
 import { addResultContainer, addTodayTemperatures, addWeekTemperatures, addOtherCity} from './addDomElements.js';
-import {addCityToLocalStorage} from './addlocalStorage.js';
+import { addCityToLocalStorage } from './storage.js';
 
 const userInput = document.querySelector('.UserInput');
 
-// Event listener for user input
 userInput.addEventListener('input', function() {
-    const inputText = this.value.trim();
+    const inputText = this.value;
     Citysearch(inputText);
-    console.log(inputText);
-    localStorage.setItem('lastSearchedCity', inputText);
-    addCityToLocalStorage(inputText, container);
 });
 
-// ----Add all functions after user input value---
-async function handleNewUserInput(inputText) {
+
+async function handleNewUserInput() {
+   
+    const userInput = document.querySelector ('.UserInput').value;
+    
     try {
-        const CityWeather = await getCityWeather(inputText);
-        const CityForecast = await getCityForecast(inputText);
+        
+        const CityWeather = await getCityWeather(userInput);
+        const CityForecast = await getCityForecast(userInput);
 
-        await GetCityPicture(inputText);
+        await GetCityPicture(userInput);
 
-        // Pass the trimmed input value to the functions in addDomElements.js
-        addResultContainer(CityWeather, CityForecast, inputText);
-        addIcons(CityWeather);
+        addResultContainer(CityWeather, CityForecast);
+        addIcons (CityWeather);
         addTodayTemperatures(CityForecast);
         addWeekTemperatures(CityForecast);
+        
+        addCityToLocalStorage(userInput);
+     
+        return { CityWeather, CityForecast };
+
     } catch (error) {
         console.error('An error occurred:', error);
+       
     }
 }
+document.getElementById('SearchButton').addEventListener('click', handleNewUserInput);
 
-// Event listener for the SearchButton click
-document.getElementById('SearchButton').addEventListener('click', function() {
-    const inputText = userInput.value.trim();
-    handleNewUserInput(inputText);
-});
- 
-// ----Add compare cities after user input value---
+
+
 async function handleCompareCityInput() {
    
     const userInput = document.querySelector ('.UserInput').value;
@@ -61,3 +62,28 @@ async function handleCompareCityInput() {
     }
 }
 document.getElementById('CompareButton').addEventListener('click', handleCompareCityInput);
+
+
+async function handlePageRefresh() {
+    const userInputElement = document.querySelector('.UserInput');
+
+    const storedCities = JSON.parse(localStorage.getItem('cities')) || [];
+    userInputElement.value = storedCities.length > 0 ? storedCities[0] : '';
+
+    try {
+    
+        const CityWeather = await getCityWeather(userInputElement.value);
+        const CityForecast = await getCityForecast(userInputElement.value);
+
+        await GetCityPicture(userInputElement.value);
+
+        addResultContainer(CityWeather, CityForecast);
+        addIcons(CityWeather);
+        addTodayTemperatures(CityForecast);
+        addWeekTemperatures(CityForecast);
+        
+    } catch (error) {
+        console.error('An error occurred:', error);
+    }
+}
+document.addEventListener('DOMContentLoaded', handlePageRefresh);
