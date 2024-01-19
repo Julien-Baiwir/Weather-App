@@ -1,10 +1,3 @@
-function extractCityName(displayName) {
-    
-    const parts = displayName.split(',').map(part => part.trim());
-    return parts[0]; 
-}
-
-
 export async function Citysearch(cityOptions) {
     const datalistCity = document.getElementById('searchoptions');
     try {
@@ -21,4 +14,8 @@ export async function Citysearch(cityOptions) {
         console.error('Error loading cities:', error);
     }
 }
+
+
+
+
 

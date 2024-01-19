@@ -97,8 +97,10 @@ export function addOtherCity(CityForecast, CityWeather) {
     const newcityDiv = document.createElement('div');
     newcityDiv.className = 'app__result__compare__city';
 
-    const removeButton = document.createElement('button');
-    removeButton.innerHTML = '<img src="assets/images/X.svg" alt="Remove">';
+    const removeButton = document.createElement('img');
+    removeButton.src = 'assets/images/X.svg';
+    removeButton.id = 'remove-button';
+    removeButton.alt = 'Remove';
 
     newcityDiv.innerHTML = `
         <h2 class="app__result__compare__city__name">${cityName}</h2>

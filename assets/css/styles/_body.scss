@@ -209,6 +209,7 @@ body {
         grid-row: span 1;
         grid-column: span 4;
         display: flex;
+        flex-direction: row;
         justify-content: space-around;
         margin-top: 0.5em;
         background: $transp-white-2;
@@ -222,20 +223,19 @@ body {
               color: $white;
             }
             &__icon{
-              width: 30px;
-              height: 30px;
+              padding-left: 0.5em;
+              width: 1.8em;
+              height: 1.8em;
             }
             &__temp{
+              padding-left: 0.5em;
               color: $white;
               font-size: 1.2em;
             }
             &__remove-button{
-              background: $transp-white-2;
-        backdrop-filter: blur(10px);
-        padding: 0.5em 0.2em;
-        border: 1px solid $transp-white-2;
-        border-radius: 0.6em;
-        box-shadow: 0 0.25em 0.5em ($shadow);
+              padding-left: 1em;
+              width: 16px ;
+              height: 16px;
             }
       }
 

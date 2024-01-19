@@ -241,6 +241,7 @@ body {
   grid-row: span 1;
   grid-column: span 4;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   margin-top: 0.5em;
   background: rgba(255, 255, 255, 0.1);
@@ -255,21 +256,19 @@ body {
   color: #ffffff;
 }
 .app__result__compare__city__icon {
-  width: 30px;
-  height: 30px;
+  padding-left: 0.5em;
+  width: 1.8em;
+  height: 1.8em;
 }
 .app__result__compare__city__temp {
+  padding-left: 0.5em;
   color: #ffffff;
   font-size: 1.2em;
 }
 .app__result__compare__city__remove-button {
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  padding: 0.5em 0.2em;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.6em;
-  box-shadow: 0 0.25em 0.5em rgba(3, 46, 87, 0.1);
+  padding-left: 1em;
+  width: 16px;
+  height: 16px;
 }
 .app__today-temperatures {
   width: 80%;
@@ -431,6 +430,11 @@ body {
 
 #CompareButton {
   width: 7%;
+}
+
+#remove-button {
+  width: 100%;
+  height: 100%;
 }
 
 .UserInput {
