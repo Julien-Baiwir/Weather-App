@@ -10,14 +10,15 @@ This application was built using HTML, CSS, SCSS, JavaScript, OpenWeather API, U
 
 ## Features
 
-- **Comparison of Weather Data for Multiple Cities**
 - **City Search with Autocomplete**
-- **Graph Displaying Temperatures of Selected Cities**
-- **Visualization of Temperature Charts**
-- **Local Storage with JSON**
+- **Visualization of this week temperatures and next hours**
+- **Local Storage with JSON, memorize last search**
 - **Responsive design**
+- **Graph Displaying Temperatures of Selected Cities**
+
 - **Comparison of Weather Data for Multiple Cities:**
-![Weather App Screenshot](assets/images/readme/main.PNG)
+
+![Weather App Screenshot](assets/images/readme/compare.PNG)
 
 ## Work in progress
 
