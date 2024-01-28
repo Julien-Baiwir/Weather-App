@@ -11,10 +11,11 @@ This application was built using HTML, CSS, SCSS, JavaScript, OpenWeather API, U
 ## Features
 
 - **City Search with Autocomplete**
+- **Show a panel of photos of the city**
 - **Visualization of this week temperatures and next hours**
 - **Local Storage with JSON, memorize last search**
 - **Responsive design**
-- **Graph Displaying Temperatures of Selected Cities**
+- **Graph Displaying Temperatures of Selected City**
 
 - **Comparison of Weather Data for Multiple Cities:**
 
